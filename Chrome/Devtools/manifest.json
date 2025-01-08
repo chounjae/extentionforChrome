@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Extension tools",
+  "version": "1.0",
+  "description": "Develop Chrome Extension more easily, change your Dev environment.",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "action": {
+    "default_popup": "index/index.html",
+    "default_icon": "images/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["index/index.css"],
+      "js": ["index/index.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/functions.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://*/*", "http://*/*"]
+}
